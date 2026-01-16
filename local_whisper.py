@@ -27,11 +27,10 @@ def transcribe_and_translate(audio_path, translate=False):
 
     if translate:
         print("\nTranslating to English...")
-        translation_options = whisper.DecodingOptions(task="translate")
-        translation_result = model.decode(model.pad_or_trim(whisper.log_mel_spectrogram(whisper.load_audio(audio_path))), translation_options)
+        translation_result = model.transcribe(audio_path, task="translate")
 
         print("\n--- Translation (English) ---")
-        print(translation_result.text)
+        print(translation_result["text"])
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Transcribe and translate audio files locally with Whisper.")
