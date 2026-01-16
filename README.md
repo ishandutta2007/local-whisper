@@ -42,3 +42,4 @@ To transcribe and translate an audio file to English:
 ```bash
 python local_whisper.py <path_to_your_audio_file> --translate
 ```
+# local-whisper
